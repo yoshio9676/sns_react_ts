@@ -1,35 +1,33 @@
-import { SvgIconTypeMap } from "@mui/material";
-import { OverridableComponent } from "@mui/material/OverridableComponent";
-import Diversity3Icon from "@mui/icons-material/Diversity3";
-
 type MenuType = {
   id: number;
   name: string;
-  icon?: OverridableComponent<SvgIconTypeMap<object, "svg">> & {
-    muiName: string;
-  };
+  tab: string;
 };
 
 export const menus: Array<MenuType> = [
   {
     id: 1,
     name: "フレンド",
-    icon: Diversity3Icon,
+    tab: "friend",
   },
   {
     id: 2,
+    tab: "online",
     name: "オンライン",
   },
   {
     id: 3,
+    tab: "all_display",
     name: "全て表示",
   },
   {
     id: 4,
+    tab: "staying",
     name: "保留中",
   },
   {
     id: 5,
+    tab: "block",
     name: "ブロック",
   },
 ];
