@@ -1,0 +1,33 @@
+.main-content {
+    background: #303338;
+    flex: 0.65;
+    .main-top {
+        width: 100%;
+        height: 50px;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: flex-start;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid black;
+        .menu {
+            color: #94999f;
+            width: fit-content;
+            height: 90%;
+            line-height: 1;
+            font-size: 15px;
+            padding: 8px 10px;
+            cursor: pointer;
+            text-align: center;
+            &:hover {
+                color: white;
+                background: #42444c;
+                border-radius: 6px;
+            }
+        }
+    }
+    .contents {
+
+    }
+}

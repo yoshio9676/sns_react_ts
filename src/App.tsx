@@ -1,9 +1,16 @@
 import "./App.scss";
+import Main from "./components/main/Main";
+import SideBar from "./components/sidebar/SideBar";
 
 function App() {
   return (
     <>
-      <h1>SNS App Vite & React & TypeScript!!!</h1>
+      <div className="content">
+        {/* sidebar */}
+        <SideBar></SideBar>
+        {/* main */}
+        <Main></Main>
+      </div>
     </>
   );
 }
