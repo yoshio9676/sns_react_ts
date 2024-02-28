@@ -6,9 +6,7 @@ function App() {
   return (
     <>
       <div className="content">
-        {/* sidebar */}
         <SideBar></SideBar>
-        {/* main */}
         <Main></Main>
       </div>
     </>

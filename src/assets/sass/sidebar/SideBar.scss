@@ -1,6 +1,6 @@
 .sidebar {
     display: flex;
-    flex: 0.35;
+    width: 330px;
     height: 100vh;
     background: #2a2d31;
     .sidebar-left {
@@ -125,9 +125,6 @@
                     &:hover {
                         background: #3f4248;
                         border-radius: 50%;
-                    }
-                    svg:hover {
-                        // color: #3f4248;
                     }
                 }
             }

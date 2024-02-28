@@ -1,26 +1,45 @@
 import React from "react";
-import MenuType, { menus } from "../../types/main/Menu";
-import { JSX } from "@emotion/react/jsx-runtime";
+import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
+import PushPinIcon from "@mui/icons-material/PushPin";
+import PeopleIcon from "@mui/icons-material/People";
+import SearchIcon from "@mui/icons-material/Search";
+import SendIcon from "@mui/icons-material/Send";
+import HelpIcon from "@mui/icons-material/Help";
 
-type MainTopProp = {
-  currentTab: MenuType["tab"];
-  changeTab: (t: MenuType["tab"]) => void;
-};
-const MainTop = ({ currentTab, changeTab }: MainTopProp) => {
-  const items: JSX.Element[] = menus.map((menu: MenuType) => {
-    const currentTabClass: string =
-      currentTab === menu.tab ? "active menu" : "menu";
-    return (
-      <p
-        className={currentTabClass}
-        key={menu.id}
-        onClick={() => changeTab(menu.tab)}
-      >
-        {menu.name}
-      </p>
-    );
-  });
-  return <div className="main-top">{items}</div>;
+const MainTop = () => {
+  return (
+    <>
+      <div className="main-top">
+        <div className="main-top-left">
+          <span className="main-top-left-hash">#</span>
+          <span className="main-top-left-channelname">チャンネル1</span>
+        </div>
+        <div className="main-top-right">
+          <div className="main-top-right-icon">
+            <NotificationsActiveIcon />
+          </div>
+          <div className="main-top-right-icon">
+            <PushPinIcon />
+          </div>
+          <div className="main-top-right-icon">
+            <PeopleIcon />
+          </div>
+          <div className="main-top-right-search">
+            <input type="text" placeholder="検索" />
+            <div className="main-top-right-search-icon">
+              <SearchIcon />
+            </div>
+          </div>
+          <div className="main-top-right-icon">
+            <SendIcon />
+          </div>
+          <div className="main-top-right-icon">
+            <HelpIcon />
+          </div>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default MainTop;
