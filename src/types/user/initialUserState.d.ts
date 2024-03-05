@@ -1,5 +1,6 @@
-type UserState = {
+export type UserState = {
   uid: string;
+  name: string;
   photo: string;
   email: string;
 };
