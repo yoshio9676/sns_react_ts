@@ -7,7 +7,7 @@ const SideBarRight = () => {
   return (
     <div className="sidebar-right">
       <div className="sidebar-top">
-        <h3>Discord</h3>
+        <h3>SNS</h3>
         <ExpandMoreIcon className="icon"></ExpandMoreIcon>
       </div>
       <SideBarChannels></SideBarChannels>

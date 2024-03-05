@@ -1,9 +1,16 @@
 import React from "react";
+import Message from "./Message";
 
 const MainContent = () => {
   return (
     <>
-      <div>MainContent</div>
+      <div className="contents">
+        <Message />
+        <Message />
+        <Message />
+        <Message />
+        <Message />
+      </div>
     </>
   );
 };
