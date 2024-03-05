@@ -14,12 +14,13 @@
         .server-icon {
             width: 55px;
             height: 55px;
-            border-radius: 50%;
-            background: #303338;
             display: flex;
             justify-content: center;
             align-items: center;
             margin-bottom: 10px;
+            img {
+                width: 40px;
+            }
             svg {
                 font-size: 50px;
             }

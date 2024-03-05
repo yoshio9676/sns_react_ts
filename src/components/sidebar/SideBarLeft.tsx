@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AccountType, { accounts } from "../../types/sidebar/Account";
 import { JSX } from "@emotion/react/jsx-runtime";
-import * as Icons from "@mui/icons-material";
+// import * as Icons from "@mui/icons-material";
 
 const SideBarLeft = () => {
   // setContextで管理した方がよい？
@@ -23,7 +23,8 @@ const SideBarLeft = () => {
         onClick={() => handleCurrentAccount(account.id)}
         key={account.id}
       >
-        {React.createElement(Icons[account.icon])}
+        {/* {React.createElement(Icons[account.icon])} */}
+        <img src="/discordIcon.png" alt="account icon" />
       </div>
     );
   });
