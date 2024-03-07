@@ -26,6 +26,8 @@ function MainBottom() {
       alert("チャンネルを選択してください");
       return;
     }
+    const sendMessage: string = inputMessage;
+    setInputMessage("");
 
     const collectionRef: CollectionReference<DocumentData> = collection(
       db,
@@ -35,7 +37,7 @@ function MainBottom() {
     );
 
     await addDoc(collectionRef, {
-      message: inputMessage,
+      message: sendMessage,
       timestamp: serverTimestamp(),
       user,
     });
@@ -48,6 +50,7 @@ function MainBottom() {
         <input
           type="text"
           placeholder="Message"
+          value={inputMessage}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             setInputMessage(e.target.value)
           }
