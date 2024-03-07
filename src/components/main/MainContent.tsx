@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Message from "./Message";
 import { MessageType } from "../../types/message/message";
 
@@ -19,9 +19,20 @@ const MainContent = ({ messages }: MainContentProp) => {
     );
   });
 
+  // メッセージ送信後に最新メッセージが表示されるように最下層にスクロール
+  const endOfMessages = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (endOfMessages.current) {
+      endOfMessages.current.scrollIntoView(false);
+    }
+  }, [messages]);
+
   return (
     <>
-      <div className="contents">{messageList}</div>
+      <div className="contents">
+        {messageList}
+        <div ref={endOfMessages}></div>
+      </div>
     </>
   );
 };
