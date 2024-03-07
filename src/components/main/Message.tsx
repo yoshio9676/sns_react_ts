@@ -1,12 +1,11 @@
 import React from "react";
 import FaceIcon from "@mui/icons-material/Face";
-import { UserState } from "../../types/user/initialUserState";
+import { MessageType } from "../../types/message/message";
 
-type MessageProp = {
-  user: null | UserState;
-};
+type MessageProp = MessageType;
 
-const Message = ({ user }: MessageProp) => {
+const Message = ({ message, timestamp, user }: MessageProp) => {
+  const date = `${timestamp?.toDate().toLocaleString()}`;
   return (
     <div className="message">
       {user?.photo ? (
@@ -17,9 +16,9 @@ const Message = ({ user }: MessageProp) => {
       <div className="message-info">
         <h4 className="account-info">
           {user?.name ?? "undefined"}
-          <span className="timestamp">2024/3/5 12:00</span>
+          <span className="timestamp">{date}</span>
         </h4>
-        <p>Message Content</p>
+        <p>{message}</p>
       </div>
     </div>
   );

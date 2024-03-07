@@ -1,19 +1,27 @@
 import React from "react";
 import Message from "./Message";
-import { useAppSelector } from "../../app/hooks";
+import { MessageType } from "../../types/message/message";
 
-const MainContent = () => {
-  const user = useAppSelector((state) => state.userState.user);
+type MainContentProp = {
+  messages: MessageType[];
+};
+
+const MainContent = ({ messages }: MainContentProp) => {
+  const messageList = messages.map((message: MessageType) => {
+    return (
+      <Message
+        user={message.user}
+        timestamp={message.timestamp}
+        message={message.message}
+        id={message.id}
+        key={message.id}
+      />
+    );
+  });
 
   return (
     <>
-      <div className="contents">
-        <Message user={user} />
-        <Message user={user} />
-        <Message user={user} />
-        <Message user={user} />
-        <Message user={user} />
-      </div>
+      <div className="contents">{messageList}</div>
     </>
   );
 };
