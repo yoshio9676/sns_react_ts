@@ -26,8 +26,6 @@ function MainBottom() {
       alert("チャンネルを選択してください");
       return;
     }
-    const sendMessage: string = inputMessage;
-    setInputMessage("");
 
     const collectionRef: CollectionReference<DocumentData> = collection(
       db,
@@ -37,10 +35,11 @@ function MainBottom() {
     );
 
     await addDoc(collectionRef, {
-      message: sendMessage,
+      message: inputMessage,
       timestamp: serverTimestamp(),
       user,
     });
+    setInputMessage("");
   };
 
   return (
