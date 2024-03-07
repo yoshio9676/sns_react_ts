@@ -3,6 +3,8 @@ import AddIcon from "@mui/icons-material/Add";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { JSX } from "@emotion/react/jsx-runtime";
 import { Channel } from "../../hooks/useCollection";
+import { collection, addDoc } from "@firebase/firestore";
+import { db } from "../../firebase";
 
 type SideBarChannelsProp = {
   channels: Channel[];
@@ -18,6 +20,15 @@ const SideBarChannels = ({ channels }: SideBarChannelsProp) => {
     );
   });
 
+  const addChannel = async () => {
+    const newChannelName: string | null = prompt("Add new channel");
+    if (newChannelName) {
+      await addDoc(collection(db, "channels"), {
+        channelName: newChannelName,
+      });
+    }
+  };
+
   return (
     <div className="sidebar-channels">
       <div className="channels-header">
@@ -25,7 +36,7 @@ const SideBarChannels = ({ channels }: SideBarChannelsProp) => {
           <ExpandMoreIcon className="icon" />
           <p>チャンネル一覧</p>
         </div>
-        <AddIcon className="right" />
+        <AddIcon className="right" onClick={() => addChannel()} />
       </div>
       <div className="channels">{channelList}</div>
     </div>

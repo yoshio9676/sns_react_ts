@@ -11,10 +11,10 @@ const SideBarRight = () => {
     <div className="sidebar-right">
       <div className="sidebar-top">
         <h3>SNS</h3>
-        <ExpandMoreIcon className="icon"></ExpandMoreIcon>
+        <ExpandMoreIcon className="icon" />
       </div>
-      <SideBarChannels channels={documents}></SideBarChannels>
-      <SideBarFooter></SideBarFooter>
+      <SideBarChannels channels={documents} />
+      <SideBarFooter />
     </div>
   );
 };
