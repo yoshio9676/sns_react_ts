@@ -5,15 +5,29 @@ import { JSX } from "@emotion/react/jsx-runtime";
 import { Channel } from "../../hooks/useCollection";
 import { collection, addDoc } from "@firebase/firestore";
 import { db } from "../../firebase";
+import { useAppDispatch } from "../../app/hooks";
+import { setChannelInfo } from "../../features/channelSlice";
 
 type SideBarChannelsProp = {
   channels: Channel[];
 };
 
 const SideBarChannels = ({ channels }: SideBarChannelsProp) => {
+  const dispatch = useAppDispatch();
   const channelList: JSX.Element[] = channels.map((c: Channel) => {
     return (
-      <p className="channel" key={c.id}>
+      <p
+        className="channel"
+        key={c.id}
+        onClick={() =>
+          dispatch(
+            setChannelInfo({
+              channelId: c.id,
+              channelName: c.channel.channelName,
+            }),
+          )
+        }
+      >
         <span className="channel-hash">#</span>
         {c.channel.channelName}
       </p>

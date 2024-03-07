@@ -3,7 +3,7 @@ import Message from "./Message";
 import { useAppSelector } from "../../app/hooks";
 
 const MainContent = () => {
-  const user = useAppSelector((state) => state.user);
+  const user = useAppSelector((state) => state.userState.user);
 
   return (
     <>

@@ -7,7 +7,7 @@ import { auth } from "../../firebase";
 import { useAppSelector } from "../../app/hooks";
 
 const SideBarFooter = () => {
-  const user = useAppSelector((state) => state.user);
+  const user = useAppSelector((state) => state.userState.user);
 
   const userIcon = () => {
     return (

@@ -5,14 +5,20 @@ import PeopleIcon from "@mui/icons-material/People";
 import SearchIcon from "@mui/icons-material/Search";
 import SendIcon from "@mui/icons-material/Send";
 import HelpIcon from "@mui/icons-material/Help";
+import { useAppSelector } from "../../app/hooks";
 
 const MainTop = () => {
+  const channelName: string | null = useAppSelector(
+    (state) => state.channelState.channelName,
+  );
   return (
     <>
       <div className="main-top">
         <div className="main-top-left">
           <span className="main-top-left-hash">#</span>
-          <span className="main-top-left-channelname">チャンネル1</span>
+          <span className="main-top-left-channelname">
+            {channelName ?? "undefined"}
+          </span>
         </div>
         <div className="main-top-right">
           <div className="main-top-right-icon">
