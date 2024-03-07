@@ -96,6 +96,11 @@
                 svg {
                     font-size: 40px;
                 }
+                img {
+                    border-radius: 50%;
+                    width: 45px;
+                    height: 45px;
+                }
                 .account-names {
                     display: flex;
                     flex-direction: column;
@@ -103,8 +108,10 @@
                     margin-left: 6px;
                     h4 {
                         font-size: 12px;
+                        overflow-x: hidden;
                     }
                     span {
+                        overflow-x: hidden;
                         display: block;
                         font-size: 10px;
                         color: #b5bac0;

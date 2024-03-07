@@ -1,30 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import AddIcon from "@mui/icons-material/Add";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import ChannelType, { channels } from "../../types/sidebar/Channel";
 import { JSX } from "@emotion/react/jsx-runtime";
+import { Channel } from "../../hooks/useCollection";
 
-const SideBarChannels = () => {
-  // useContextで管理した方がよい？
-  const [currentChannel, setCurrentChannel] = useState<ChannelType["id"]>(
-    channels[0].id,
-  );
+type SideBarChannelsProp = {
+  channels: Channel[];
+};
 
-  const handleCurrentChannel = (channelId: ChannelType["id"]): void => {
-    setCurrentChannel(channelId);
-  };
-
-  const channelList: JSX.Element[] = channels.map((c: ChannelType) => {
-    const currentChannelClass =
-      currentChannel === c.id ? "active channel" : "channel";
+const SideBarChannels = ({ channels }: SideBarChannelsProp) => {
+  const channelList: JSX.Element[] = channels.map((c: Channel) => {
     return (
-      <p
-        className={currentChannelClass}
-        key={c.id}
-        onClick={() => handleCurrentChannel(c.id)}
-      >
+      <p className="channel" key={c.id}>
         <span className="channel-hash">#</span>
-        {c.name}
+        {c.channel.channelName}
       </p>
     );
   });
