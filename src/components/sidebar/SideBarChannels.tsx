@@ -5,7 +5,7 @@ import { JSX } from "@emotion/react/jsx-runtime";
 import { Channel } from "../../hooks/useCollection";
 import { collection, addDoc } from "@firebase/firestore";
 import { db } from "../../firebase";
-import { useAppDispatch } from "../../app/hooks";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { setChannelInfo } from "../../features/channelSlice";
 
 type SideBarChannelsProp = {
@@ -14,10 +14,14 @@ type SideBarChannelsProp = {
 
 const SideBarChannels = ({ channels }: SideBarChannelsProp) => {
   const dispatch = useAppDispatch();
+  const channelId = useAppSelector((state) => state.channelState.channelId);
+
   const channelList: JSX.Element[] = channels.map((c: Channel) => {
+    const channelClass = c.id === channelId ? "channel active" : "channel";
+
     return (
       <p
-        className="channel"
+        className={channelClass}
         key={c.id}
         onClick={() =>
           dispatch(
